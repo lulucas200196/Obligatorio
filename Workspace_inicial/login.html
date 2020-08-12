@@ -1,53 +1,125 @@
 <!DOCTYPE html>
 <!-- saved from url=(0049)https://getbootstrap.com/docs/4.3/examples/album/ -->
 <html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta name="description" content="" />
+    <title>eMercado - Todo lo que busques está aquí</title>
 
-<head>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="">
-  <title>eMercado - Todo lo que busques está aquí</title>
+    <link
+      rel="canonical"
+      href="https://getbootstrap.com/docs/4.3/examples/album/"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i"
+      rel="stylesheet"
+    />
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+    <link href="css/styles.css" rel="stylesheet" />
+    <style>
+      @keyframes deslizarR {
+        0% {
+          margin-left: 200%;
+        }
 
-  <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/album/">
-  <link href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
-  <!-- Bootstrap core CSS -->
-  <link href="css/bootstrap.min.css" rel="stylesheet">
-  <link href="css/styles.css" rel="stylesheet">
-  <style>
-    html, body{
-      height: 100%;
-    }
+        100% {
+          margin-left: 0%;
+        }
+      }
 
-    body {
-      display: -ms-flexbox;
-      display: flex;
-      -ms-flex-align: center;
-      align-items: center;
-      padding-top: 40px;
-      padding-bottom: 40px;
-      background-color: #f5f5f5;
-    }
+      @keyframes deslizarL {
+        0% {
+          margin-right: 200%;
+        }
 
-    .signin {
-      width: 100%;
-      max-width: 330px;
-      padding: 15px;
-      margin: auto;
-    }
-  </style>
-</head>
+        100% {
+          margin-right: 0%;
+        }
+      }
 
-<body class="text-center">
-  <div class="container p-5">
-    <div class="alert alert-danger" role="alert" style="position: relative; width:auto; top: 0;">
-      <h4 class="alert-heading">¡A trabajar! :)</h4>
-      <p>Esta sección corresponde a: Entrega 1 (Fecha de entrega: 16/08/2020) -> Punto 3 y 4.</p>
-      <hr>
-      <p class="mb-0">Para saber qué debes hacer, fijate en la actividad en CREA correspondiente a esta entrega.</p>
+      html,
+      body {
+        height: 100%;
+      }
+
+      body {
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-align: center;
+        align-items: center;
+        padding-top: 40px;
+        padding-bottom: 40px;
+        background-color: #f5f5f5;
+        background-image: url(img/loginbackground.jpg);
+      }
+
+      .signin {
+        width: 100%;
+        max-width: 330px;
+        padding: 15px;
+        margin: left;
+        float: left;
+        background-color: whitesmoke;
+        border-radius: 20px;
+        animation: deslizarR 1.5s;
+      }
+
+      #button {
+        width: max-content;
+        height: max-content;
+        border-radius: 20px;
+      }
+      #imgB {
+        float: right;
+        height: 250px;
+        width: 500px;
+        border-radius: 20px;
+        animation: deslizarL 1.5s;
+      }
+    </style>
+  </head>
+
+  <body class="text-center">
+    <div class="container p-5">
+      <img id="imgB" src="img/login.png" />
+      <form class="signin">
+        <div>
+          <label for="inputEmail">Ingrese su e-mail:</label>
+          <br />
+          <input type="email" id="email" placeholder="Email" required />
+        </div>
+        <br />
+        <div>
+          <label for="inputPassword">Ingrese su contraseña:</label>
+          <br />
+          <input type="password" id="pass" placeholder="Contraseña" required />
+        </div>
+        <br />
+        <label>
+          <input type="checkbox" id="rePass" value="rememberPass" />
+          Recordar contraseña
+        </label>
+        <br />
+
+        <a href="index.html">Continuar sin iniciar sesión</a>
+        <br />
+        <button
+          type="submit"
+          id="button"
+          onclick="onLogin()"
+          value="IniciarSecion"
+        >
+          Iniciar sesión
+        </button>
+      </form>
     </div>
-  </div>
 
-  <script src="js/init.js"></script>
-  <script src="js/login.js"></script>
-</body>
+    <script src="js/init.js"></script>
+    <script src="js/login.js"></script>
+  </body>
 </html>
