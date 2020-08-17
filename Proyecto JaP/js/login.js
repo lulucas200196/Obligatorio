@@ -5,7 +5,7 @@
 function onLogin(){
     var email = document.getElementById("email").value;
     var pass = document.getElementById("pass").value;
-    if (email =="" || pass =="") {
+    if (email.trim() =="" || pass =="") {
         alert("Por favor, complete los campos vacíos");
     }else{        
         location.href='index.html';
