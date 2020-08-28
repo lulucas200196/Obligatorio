@@ -89,9 +89,9 @@
       <img id="imgB" src="img/login.png" />
       <div class="signin">
         <div>
-          <label for="inputEmail">Ingrese su e-mail:</label>
+          <label for="inputUser">Ingrese su usuario:</label>
           <br />
-          <input type="email" id="email" placeholder="Email" required />
+          <input type="text" id="user" placeholder="Usuario" required />
         </div>
         <br />
         <div>
@@ -101,17 +101,17 @@
         </div>
         <br />
         <label>
-          <input type="checkbox" id="rePass" value="rememberPass" />
+          <input type="checkbox" id="rePass" value="rememberPass"/>
           Recordar contraseña
         </label>
         <br />
 
-        <a href="index.html">Continuar sin iniciar sesión</a>
-        <br />
+        
         <button
           type="submit"
           id="button"
           value="IniciarSesion"
+          onclick="onLogin()"
         >
           Iniciar sesión
         </button>

@@ -148,4 +148,8 @@ a.custom-card:hover {
   text-align: center;
   vertical-align: middle;
   user-select: none;
-  }
+}
+
+#close{
+ border-radius: 5px;
+}

@@ -1,5 +1,4 @@
 const ORDER_ASC_BY_NAME = "AZ";
-const ORDER_DESC_BY_NAME = "ZA";
 const ORDER_BY_PROD_COST_UP = "Mayor precio";
 const ORDER_BY_PROD_COST_DOWN = "Menor precio";
 const ORDER_BY_PROD_SOLD_COUNT = "Más relevancia";
@@ -15,12 +14,6 @@ function sortProducts(criteria, array){
         result = array.sort(function(a, b) {
             if ( a.name < b.name ){ return -1; }
             if ( a.name > b.name ){ return 1; }
-            return 0;
-        });
-    }else if (criteria === ORDER_DESC_BY_NAME){
-        result = array.sort(function(a, b) {
-            if ( a.name > b.name ){ return -1; }
-            if ( a.name < b.name ){ return 1; }
             return 0;
         });
     }else if (criteria === ORDER_BY_PROD_COST_UP){
@@ -107,14 +100,6 @@ document.addEventListener("DOMContentLoaded", function(e){
         if (resultObj.status === "ok"){
             sortAndShowProducts(ORDER_ASC_BY_NAME, resultObj.data);
         }
-    });
-
-    document.getElementById("sortAsc").addEventListener("click", function(){
-        sortAndShowProducts(ORDER_ASC_BY_NAME);
-    });
-
-    document.getElementById("sortDesc").addEventListener("click", function(){
-        sortAndShowProducts(ORDER_DESC_BY_NAME);
     });
 
     document.getElementById("sortByCostUp").addEventListener("click", function(){
