@@ -98,42 +98,48 @@ function showComments(array){   //mostrar comentarios
 //agregar un comentario
 function sendComment(){   
     var comentario = document.getElementById("newComment").value;  //Guardamos en comentario, lo que el usuario ingrese en el imput para comentar
-    var user = localStorage.getItem("Usuario");                    //Guardamos en user, el usuario que está guardado en el localstorage desde el login
-    //estrella -> .score
-    var newComment = {}; //creamos el objeto que guardará el nuevo comentario
+    if(comentario === ""){
+        alert("Por favor, escriba un comentario.");
+    }else{
+        var user = localStorage.getItem("Usuario");                    //Guardamos en user, el usuario que está guardado en el localstorage desde el login
+        //estrella -> .score
+        var newComment = {}; //creamos el objeto que guardará el nuevo comentario
 
 
-    //Obtener la fecha y hora
-    var hoy = new Date();           //guardar, en la variable hoy, una instancia de la clase Date
-    var año = hoy.getFullYear();    //guardamos el año actual
-    var mes = hoy.getMonth() + 1;   //guardamos el mes actual y le sumamos 1 al porque comienza en 0
-    var dia = hoy.getDate();        //guardamos el día actual
+        //Obtener la fecha y hora
+        var hoy = new Date();           //guardar, en la variable hoy, una instancia de la clase Date
+        var año = hoy.getFullYear();    //guardamos el año actual
+        var mes = hoy.getMonth() + 1;   //guardamos el mes actual y le sumamos 1 al porque comienza en 0
+        var dia = hoy.getDate();        //guardamos el día actual
     
-    //sumamos todo y si el mes y el dia son menores que 10 le agregamos un 0 al principio de cada dato
-    var fecha = año + '-' + ((mes < 10) ? '0' + mes: mes) + '-' + ((dia < 10) ? '0' + dia: dia);
+        //sumamos todo y si el mes y el dia son menores que 10 le agregamos un 0 al principio de cada dato
+        var fecha = año + '-' + ((mes < 10) ? '0' + mes: mes) + '-' + ((dia < 10) ? '0' + dia: dia);
 
-    var hora = hoy.getHours();  //guardamos hora actual 
-    var min = hoy.getMinutes(); //guardamos minutos actuales
-    var seg = hoy.getSeconds(); //guardamos segundos actuales
+        var hora = hoy.getHours();  //guardamos hora actual 
+        var min = hoy.getMinutes(); //guardamos minutos actuales
+        var seg = hoy.getSeconds(); //guardamos segundos actuales
+        
+        //sumamos todo y si alguno es menor que 10 le agregamos un 0, sino los datos quedan igual
+        var hms = ((hora < 10) ? '0' + hora: hora) + ':' + ((min < 10) ? '0' + min: min) + ':' + ((seg < 10) ? '0' + seg: seg);
+        var fechaYHora = fecha + ' ' + hms;
+
+        //agregamos todas las propiedades del nuevo comentario
+        newComment.score = estrella;         
+        newComment.description = comentario; 
+        newComment.user = user;
+        newComment.dateTime = fechaYHora;
+
     
-    //sumamos todo y si alguno es menor que 10 le agregamos un 0, sino los datos quedan igual
-    var hms = ((hora < 10) ? '0' + hora: hora) + ':' + ((min < 10) ? '0' + min: min) + ':' + ((seg < 10) ? '0' + seg: seg);
-    var fechaYHora = fecha + ' ' + hms;
-
-    //agregamos todas las propiedades del nuevo comentario
-    newComment.score = estrella;         
-    newComment.description = comentario; 
-    newComment.user = user;
-    newComment.dateTime = fechaYHora;
-
-    comments.push(newComment);  //agregamos el objeto nuevocomentario al array comentarios que recibimos del JSON
-    showComments(comments);     //mostramos todos los comentarios nuevamente
-    //console.log(comments);
-    //Borramos el contenido del input donde el usuario ingresa el comentario
-    document.getElementById("newComment").value = "";
-    //Desselecionamos todos los botones de puntuación
-    for (let i = 1; i < 5; i++) {
-        document.getElementById(`radio${i}`).checked = false;
+        comments.push(newComment);  //agregamos el objeto nuevocomentario al array comentarios que recibimos del JSON
+        showComments(comments);     //mostramos todos los comentarios nuevamente
+        //console.log(comments);
+        
+        //Borramos el contenido del input donde el usuario ingresa el comentario
+        document.getElementById("newComment").value = "";
+        //Desselecionamos todos los botones de puntuación
+        for (let i = 1; i < 5; i++) {
+            document.getElementById(`radio${i}`).checked = false;
+        }
     }
 }
 
