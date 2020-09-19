@@ -3,21 +3,47 @@ const productsArray = [];
 
 function showImages(array){  //Función para mostrar las imagenes como una gallería
 
-    let htmlContentToAppend = "";
+        let htmlImages = "";
+        let htmlIndicators = "";
 
     for(let i = 0; i < array.length; i++){   //mostramos cada uno de los elementos del array
         let images = array[i];
 
-        htmlContentToAppend += `
-        <div class="col-lg-3 col-md-4 col-6">
-            <div class="d-block mb-4 h-100">
-                <img class="img-fluid img-thumbnail" src="` + images + `" alt="">
+        if (i == 0) {
+            htmlImages += `
+            <div class="carousel-item active">
+                <img src="${images}" alt="" class="img-fluid img-thumbnail">
             </div>
-        </div>
-        `
-
-        document.getElementById("productImages").innerHTML = htmlContentToAppend;
+              `;
+              htmlIndicators +=`
+            <li data-target="#productImages" data-slide-to="${i}" class="active"></li>
+            `;  
+           
+        }else{
+            htmlImages += `
+            <div class="carousel-item">
+                <img src="${images}" alt="" class="img-fluid img-thumbnail" >
+            </div>
+              `;
+              htmlIndicators +=`
+            <li data-target="#productImages" data-slide-to="`+ i +`"></li>
+            `
+        }  
     }
+    
+    document.getElementById("slides").innerHTML = htmlImages;
+    document.getElementById("indicators").innerHTML = htmlIndicators;
+    
+    //Flechas para cambiar de imagen en el carrusel
+    document.getElementById("productImages").innerHTML += `
+    <a class="carousel-control-prev" href="#productImages" data-slide="prev">
+              <span class="carousel-control-prev-icon"></span>
+            </a>
+            <a class="carousel-control-next" href="#productImages" data-slide="next">
+              <span class="carousel-control-next-icon"></span>
+            </a>
+            `
+    ;
 }
 
 function showProductsRel(arrayProductos, arrayRelated){   //mostrar los productos relacionados

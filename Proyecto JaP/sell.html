@@ -46,20 +46,17 @@
             <a class="py-2 d-none d-md-inline-block" href="products.html">Productos</a>
           </div>
           <div>
-            <i style="color: white" class="fas fa-dollar-sign"></i> 
-            <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
+            <i style="color: mediumvioletred" class="fas fa-dollar-sign"></i> 
+            <a class="py-2 d-none d-md-inline-block" href="sell.html" style="color: mediumvioletred;">Vender</a>
           </div>
-          <div>
-            <i style="color: white" class="fas fa-shopping-cart"></i>
-            <a class="py-2 d-none d-md-inline-block" href="cart.html">Mi carrito</a>
-          </div>
-          <div id="userP">
-            <i style="color: white" class="fas fa-user"></i>
-            <a class="py-2 d-none d-md-inline-block" href="my-profile.html" id="perfil"></a>
-            
-            <button style="font-size: 9pt;  FONT-FAMILY: Verdana;" class="btn-secondary" id="close" onclick="logOut()">
-              Salir 
-             </button>
+          <div id="userP" class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="perfil" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <a class="dropdown-item" href="cart.html" style="color: white;">Mi carrito</a>
+              <a class="dropdown-item" href="my-profile.html" style="color: white;">Mi perfil</a>
+              <button class="dropdown-item" onclick="logOut();">Cerrar sesión</button>
+            </div>
           </div>
         </div>
     </nav>
