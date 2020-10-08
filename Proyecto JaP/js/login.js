@@ -23,7 +23,7 @@ function mostrar(){
     //obtener datos almacenados
     var user = localStorage.getItem("Usuario");
     //Mostrando los datos almacenados
-    document.getElementById("perfil").innerHTML = user;
+    document.getElementById("perfil").innerHTML =`<i style="color: white" class="fas fa-user-alt"></i> ` + user;
 }
 
 function logOut(){
