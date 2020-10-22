@@ -84,6 +84,8 @@
         </div>
         <div id="comprar">
         </div>
+        <div id="metodoPago">
+        </div>
     </div>
     </main>
     <footer class="text-muted bg-light">
@@ -98,6 +100,59 @@
         </p>
       </div>
     </footer>
+    <div class="alert fade" role="alert" id="alertResult">
+      <span id="resultSpan"></span>
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close" onclick="location.href =`index.html`">
+          <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    
+    <div class="modal fade" tabindex="-1" role="dialog" id="methodsModal">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title">Forma de pago</h4>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          
+          <div class="modal-body">
+            <div class="d-block my-3">
+              <div class="custom-control custom-radio">
+                <input id="card" name="payMethod" type="radio" class="custom-control-input" value="Tarjeta de crédito" onchange="payMethods();">
+                <label class="custom-control-label" for="card">Tarjeta de crédito  
+                  <i class="fab fa-cc-mastercard" style="font-size:25px; color:midnightblue"></i> 
+                  <i class="fab fa-cc-visa" style="font-size:25px; color:chocolate"></i>
+                  <i class="fab fa-cc-paypal" style="font-size:25px; color:midnightblue"></i> 
+                </label>
+              </div>
+              <hr>
+              
+
+              <div class="col-md mb-5" id="cardHTML">
+                
+              </div>
+              <hr>
+              
+              <div class="custom-control custom-radio">
+                <input id="bankA" name="payMethod" type="radio" class="custom-control-input" value="Cuenta bancaria" onchange="payMethods();"> 
+                <label class="custom-control-label" for="bankA">Cuenta bancaria 
+                  <i class="fas fa-money-check" style="font-size:25px; color:tomato"></i> 
+                </label>
+              </div>
+              <hr>
+              
+              <div class="col-md mb-5" style="width: 50%;" id="bankHTML">
+              
+              </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-primary" data-dismiss="modal">Cerrar</button>
+          </div>
+        </div>
+      </div>
+    </div>
   <div id="spinner-wrapper">
     <div class="lds-ring">
       <div></div>
