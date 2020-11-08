@@ -58,7 +58,28 @@ function showProductsList(){
             ((maxCost == undefined) || (maxCost != undefined && parseInt(category.cost) <= maxCost))){
 
             htmlContentToAppend += `
-            <a href="product-info.html" class="list-group-item list-group-item-action">
+            <div class="col-md-4">
+                <div class="card mb-4 ">
+                    <a href="product-info.html" class="custom-card">
+                    <img src="${category.imgSrc}" alt="${category.description}" class="img-thumbnail">
+                    <hr> 
+                    <div class="card-body">                        
+                        <h5>${category.name}</h5>
+                        <strong class="card-text">${category.currency} ${category.cost}</strong>
+                        <div class="descr">
+                        <hr class="mb-lg">
+                        <p class="card-text text-muted">${category.description}</p>
+                        </div>
+                    </div>
+                    </a>
+                </div>
+            </div>
+            `
+        }
+        document.getElementById("prod-list-container").innerHTML = htmlContentToAppend;
+    }
+}
+/**<a href="product-info.html" class="list-group-item list-group-item-action">
                 <div class="row">
                     <div class="col-3">
                         <img src="` + category.imgSrc + `" alt="` + category.description + `" class="img-thumbnail">
@@ -71,14 +92,7 @@ function showProductsList(){
                         <p class="mb-1">` + category.description + `</p>
                     </div>
                 </div>
-            </a>
-            `
-        }
-
-        document.getElementById("prod-list-container").innerHTML = htmlContentToAppend;
-    }
-}
-
+            </a> */
 function sortAndShowProducts(sortCriteria, ProductsArray){
     currentSortCriteria = sortCriteria;
 

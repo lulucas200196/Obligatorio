@@ -21,36 +21,58 @@
     <link href="css/font-awesome.min.css" rel="stylesheet" />
     <link href="css/bootstrap.min.css" rel="stylesheet" />
     <link href="css/styles.css" rel="stylesheet" />
+    <style>
+      .descr{
+        display:none;
+        position:relative;
+      }
+
+      div.card:hover .descr {
+        display:block;
+        position: static;
+	    }
+
+      
+    </style>
   </head>
   <body>
-    <nav class="site-header sticky-top py-1 bg-dark">
-      <div class="container d-flex flex-column flex-md-row justify-content-between">
-        <div>
-          <i style="color: white" class="fas fa-house-user"></i> 
-          <a class="py-2 d-none d-md-inline-block" href="index.html">Inicio</a>
-        </div>
-        <div>
-          <i style="color: white" class="fas fa-th-large"></i> 
-          <a class="py-2 d-none d-md-inline-block" href="categories.html">Categorías</a>
-        </div>
-        <div>
-          <i style="color: mediumvioletred" class="fas fa-boxes"></i> 
-          <a class="py-2 d-none d-md-inline-block" href="products.html" style="color: mediumvioletred;">Productos</a>
-        </div>
-        <div>
-          <i style="color: white" class="fas fa-dollar-sign"></i> 
-          <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
-        </div>
-        <div id="userP" class="dropdown">
-          <button class="btn btn-secondary dropdown-toggle" type="button" id="perfil" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          </button>
-          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <a class="dropdown-item" href="cart.html" style="color: white;">Mi carrito <span class="badge badge-success" id="cont"></a>
-            <a class="dropdown-item" href="my-profile.html" style="color: white;">Mi perfil</a>
-            <button class="dropdown-item" onclick="logOut();">Cerrar sesión</button>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark site-header ">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" 
+                data-target="#navbarContent" aria-controls="navbarContent" 
+                aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        
+      <div class="collapse navbar-collapse" id="navbarContent">
+        <div class="container d-flex flex-column flex-md-row justify-content-between">
+          <div class="py-2 d-md-inline-block">
+            <i style="color: white" class="fas fa-house-user"></i> 
+            <a href="index.html">Inicio</a>
           </div>
+          <div class="py-2 d-md-inline-block">
+            <i style="color: white" class="fas fa-th-large"></i> 
+            <a href="categories.html">Categorías</a>
+          </div>
+          <div class="py-2 d-md-inline-block">
+            <i style="color: mediumvioletred" class="fas fa-boxes"></i> 
+            <a href="products.html" style="color:  mediumvioletred">Productos</a>
+          </div>
+          <div class="py-2 d-md-inline-block">
+            <i style="color: white" class="fas fa-dollar-sign"></i> 
+            <a href="sell.html">Vender</a>
+          </div>
+          
+          <div id="userP" class="dropdown">
+              <button class="btn btn-secondary dropdown-toggle" type="button" id="perfil" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" href="cart.html" style="color: white;">Mi carrito <span class="badge badge-success" id="cont"></span></a>
+                <a class="dropdown-item" href="my-profile.html" style="color: white;">Mi perfil</a>
+                <button class="dropdown-item" onclick="logOut();">Cerrar sesión</button>
+              </div>
+            </div>
         </div>
-      </div>
+    </div>
     </nav>
     <main role="main" class="pb-5">
       <div class="text-center p-4">
@@ -76,49 +98,36 @@
               </label>
               <label class="btn btn-light" id="sortBySoldCount">
                 <input type="radio" name="options" autocomplete="off" />
-                <i></i>Más relevancia
+                Más relevancia
               </label>
             </div>
           </div>
         </div>
-        <div class="row justify-content-end">
+        <div class="row justify-content-end mb-3">
           <div class="col-md-6"></div>
           <div class="col-md-6 col-sm-12 mb-1 container">
             <div class="row container p-0 m-0">
               <div class="col">
-                <p class="font-weight-normal text-right my-2">Precio.</p>
+                <p class="font-weight-normal my-2">Precio.</p>
               </div>
               <div class="col">
-                <input
-                  class="form-control"
-                  type="number"
-                  placeholder="min."
-                  id="rangeFilterCountMin"
-                />
+                <input class="form-control" type="number" placeholder="min." id="rangeFilterCountMin"/>
               </div>
               <div class="col">
-                <input
-                  class="form-control"
-                  type="number"
-                  placeholder="máx."
-                  id="rangeFilterCountMax"
-                />
+                <input class="form-control" type="number" placeholder="máx." id="rangeFilterCountMax" />
               </div>
-              <div class="col-3 p-0">
+              <div class="col col-md-3 p-0">
                 <div class="btn-group" role="group">
-                  <button class="btn btn-light btn-block" id="rangeFilterCount">
-                    Filtrar
-                  </button>
-                  <button class="btn btn-link btn-sm" id="clearRangeFilter">
-                    Limpiar
-                  </button>
+                  <button class="btn btn-light btn-block" id="rangeFilterCount">Filtrar</button>
+                  <button class="btn btn-link btn-sm" id="clearRangeFilter">Limpiar</button>
                 </div>
               </div>
             </div>
           </div>
         </div>
-        <div class="row">
-          <div class="list-group" id="prod-list-container"></div>
+        <div class="container">
+          <div class="row"  id="prod-list-container">
+          </div>
         </div>
       </div>
     </main>

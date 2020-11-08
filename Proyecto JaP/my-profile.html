@@ -27,6 +27,20 @@
         font-size: 3.5rem;
       }
     }
+
+    ::-webkit-input-placeholder{
+      color: white; 
+    }
+
+    input[type=number]::-webkit-inner-spin-button, 
+    input[type=number]::-webkit-outer-spin-button { 
+      -webkit-appearance: none; 
+      margin: 0; 
+    }
+
+    .invalid{
+      color: red;
+    }
   </style>
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/styles.css" rel="stylesheet">
@@ -35,47 +49,105 @@
 </head>
 
 <body>
-  <nav class="site-header sticky-top py-1 bg-dark">
-    <div class="container d-flex flex-column flex-md-row justify-content-between">
-      <div>
-        <i style="color: white" class="fas fa-house-user"></i> 
-        <a class="py-2 d-none d-md-inline-block" href="index.html">Inicio</a>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark site-header ">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" 
+              data-target="#navbarContent" aria-controls="navbarContent" 
+              aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      
+    <div class="collapse navbar-collapse" id="navbarContent">
+      <div class="container d-flex flex-column flex-md-row justify-content-between">
+        <div class="py-2 d-md-inline-block">
+          <i style="color: white" class="fas fa-house-user"></i> 
+          <a href="index.html">Inicio</a>
+        </div>
+        <div class="py-2 d-md-inline-block">
+          <i style="color: white" class="fas fa-th-large"></i> 
+          <a href="categories.html">Categorías</a>
+        </div>
+        <div class="py-2 d-md-inline-block">
+          <i style="color: white" class="fas fa-boxes"></i> 
+          <a href="products.html">Productos</a>
+        </div>
+        <div class="py-2 d-md-inline-block">
+          <i style="color: white" class="fas fa-dollar-sign"></i> 
+          <a href="sell.html">Vender</a>
+        </div>
+        
+        <div id="userP" class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="perfil" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            </button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <a class="dropdown-item" href="cart.html" style="color: white;">Mi carrito <span class="badge badge-success" id="cont"></span></a>
+              <a class="dropdown-item" href="#" style="color: white; background-color: mediumvioletred;">Mi perfil</a>
+              <button class="dropdown-item" onclick="logOut();">Cerrar sesión</button>
+            </div>
+          </div>
       </div>
-      <div>
-        <i style="color: white" class="fas fa-th-large"></i> 
-        <a class="py-2 d-none d-md-inline-block" href="categories.html">Categorías</a>
-      </div>
-      <div>
-        <i style="color: white" class="fas fa-boxes"></i> 
-        <a class="py-2 d-none d-md-inline-block" href="products.html">Productos</a>
-      </div>
-      <div>
-        <i style="color: white" class="fas fa-dollar-sign"></i> 
-        <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
-      </div>
-      <div id="userP" class="dropdown">
-        <button class="btn btn-secondary dropdown-toggle" type="button" id="perfil" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        </button>
-        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-          <a class="dropdown-item" href="cart.html" style="color: white;">Mi carrito <span class="badge badge-success" id="cont"></span></a>
-          <a class="dropdown-item" href="#" style="color: white; background-color: mediumvioletred;">Mi perfil</a>
-          <button class="dropdown-item" onclick="logOut();">Cerrar sesión</button>
+  </div>
+  </nav>
+  <main role="main" class="mx-5">
+    <div class="container">
+      <div class="mt-5 py-4 px-5 bg-dark text-white" style="border-radius: 5px;">
+        <h2>Mis datos</h2>
+        <br>
+        <h3>Datos de la cuenta</h3>
+        <br>
+        <div class=" mb-3">
+          <label for="showUser">Usuario:</label><br>
+          <input type="text" class="btn btn-secondary btn-lg disabled shadow-sm" id="showUser" disabled>
+          <button id="editUser" class="btn btn-primary py-2">></button>
+        </div>
+        <p id="invalidUser" class="invalid"></p>
+        <div class=" mb-3">
+          <label for="showPass">Contaseña:</label><br>
+          <input type="text" class="btn btn-secondary btn-lg disabled shadow-sm " id="showPass" disabled>
+          <button id="editPass" class="btn btn-primary py-2">></button>
+        </div>
+        <hr>
+        <h3>Datos personales</h3>
+        <br>
+        <div class=" mb-3">
+          <label for="showName">Nombre:</label><br>
+          <input id="showName" type="text" class="btn btn-secondary btn-lg disabled shadow-sm" placeholder="Ingrese su nombre">
+          <button id="editName" class="btn btn-primary py-2">></button>
+        </div>
+        <p id="invalidName" class="invalid"></p>
+        <div class=" mb-3">
+          <label for="showSurname">Apellido:</label><br>
+          <input id="showSurname" type="text" class="btn btn-secondary btn-lg disabled shadow-sm" placeholder="Ingrese su apellido">
+          <button id="editSurname"class="btn btn-primary py-2">></button>
+        </div>
+        <p id="invalidSurname" class="invalid"></p>
+        <div class=" mb-3">
+          <label for="showAge">Edad:</label><br>
+          <input id="showAge" type="number" class="btn btn-secondary btn-lg disabled shadow-sm" placeholder="Ingrese su edad" min="0">
+          <button id="editAge" class="btn btn-primary py-2">></button>
+        </div>
+        <p id="invalidAge" class="invalid"></p>
+        <div class=" mb-3">
+          <label for="showEmail">Email:</label><br>
+          <input id="showEmail" type="email" class="btn btn-secondary btn-lg disabled shadow-sm" placeholder="Ingrese su email">
+          <button id="editEmail"class="btn btn-primary py-2">></button>
+        </div>
+        <p id="invalidEmail" class="invalid"></p>
+        <div class=" mb-3">
+          <label for="showTNumber">Número telefónico:</label><br>
+          <input id="showTNumber" type="number" class="btn btn-secondary btn-lg disabled shadow-sm" placeholder="Ingrese un teléfono">
+          <button id="editTNumber" class="btn btn-primary py-2">></button>
+        </div>
+        <p id="invalidTNumber" class="invalid"></p>
+        <div align="right">
+          <button class="btn btn-success" onclick="guardarDatos();">Guardar cambios</button>
         </div>
       </div>
-    </div>
-  </nav>
-  <div class="container p-5">
-    <div class="alert alert-danger" role="alert" style="position: relative; width:auto; top: 0;">
-      <h4 class="alert-heading">¡A trabajar! :)</h4>
-      <p>Esta sección corresponde a: Entrega 7 (Fecha de entrega: 8/11/202020) -> Punto 1 y 2.</p>
-      <hr>
-      <p class="mb-0">Para saber qué debes hacer, fijate en la actividad en CREA correspondiente a esta entrega.</p>
     </div>
     <!---<button style="font-size: 9pt;  FONT-FAMILY: Verdana;" class="btn-secondary" id="close" onclick="logOut()">
       Salir 
      </button>
      BOTON PARA CERRAR SESION--->
-  </div>
+  </main>
   <footer class="text-muted bg-light">
     <div class="container">
       <p>Este sitio forma parte de Desarrollo Web - JAP - 2020</p>
@@ -84,7 +156,7 @@
   </footer>
   <div class="alert fade alert-success" role="alert" id="alertResult">
     <span id="resultSpan"></span>
-    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close" onclick="location.href =`my-profile.html`">
       <span aria-hidden="true">&times;</span>
     </button>
   </div>

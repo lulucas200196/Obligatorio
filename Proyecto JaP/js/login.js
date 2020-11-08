@@ -28,6 +28,7 @@ function mostrar(){
 
 function logOut(){
     localStorage.clear();   
+    sessionStorage.clear();   
     location.href='login.html';
 }
 

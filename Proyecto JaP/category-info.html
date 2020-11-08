@@ -17,34 +17,43 @@
 </head>
 
 <body>
-  <nav class="site-header sticky-top py-1 bg-dark">
-    <div class="container d-flex flex-column flex-md-row justify-content-between">
-      <div>
-        <i style="color: white" class="fas fa-house-user"></i> 
-        <a class="py-2 d-none d-md-inline-block" href="index.html">Inicio</a>
-      </div>
-      <div>
-        <i style="color: mediumvioletred" class="fas fa-th-large"></i> 
-        <a class="py-2 d-none d-md-inline-block" href="categories.html" style="color: mediumvioletred;">Categorías</a>
-      </div>
-      <div>
-        <i style="color: white" class="fas fa-boxes"></i> 
-        <a class="py-2 d-none d-md-inline-block" href="products.html">Productos</a>
-      </div>
-      <div>
-        <i style="color: white" class="fas fa-dollar-sign"></i> 
-        <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
-      </div>
-      <div id="userP" class="dropdown">
-        <button class="btn btn-secondary dropdown-toggle" type="button" id="perfil" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        </button>
-        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-          <a class="dropdown-item" href="cart.html" style="color: white;">Mi carrito <span class="badge badge-success" id="cont"></span></a>
-          <a class="dropdown-item" href="my-profile.html" style="color: white;">Mi perfil</a>
-          <button class="dropdown-item" onclick="logOut();">Cerrar sesión</button>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark site-header ">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" 
+              data-target="#navbarContent" aria-controls="navbarContent" 
+              aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      
+    <div class="collapse navbar-collapse" id="navbarContent">
+      <div class="container d-flex flex-column flex-md-row justify-content-between">
+        <div class="py-2 d-md-inline-block">
+          <i style="color: white" class="fas fa-house-user"></i> 
+          <a href="index.html">Inicio</a>
         </div>
+        <div class="py-2 d-md-inline-block">
+          <i style="color: mediumvioletred" class="fas fa-th-large"></i> 
+          <a href="categories.html" style="color:  mediumvioletred">Categorías</a>
+        </div>
+        <div class="py-2 d-md-inline-block">
+          <i style="color: white" class="fas fa-boxes"></i> 
+          <a href="products.html">Productos</a>
+        </div>
+        <div class="py-2 d-md-inline-block">
+          <i style="color: white" class="fas fa-dollar-sign"></i> 
+          <a href="sell.html">Vender</a>
+        </div>
+        
+        <div id="userP" class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="perfil" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            </button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <a class="dropdown-item" href="cart.html" style="color: white;">Mi carrito <span class="badge badge-success" id="cont"></span></a>
+              <a class="dropdown-item" href="my-profile.html" style="color: white;">Mi perfil</a>
+              <button class="dropdown-item" onclick="logOut();">Cerrar sesión</button>
+            </div>
+          </div>
       </div>
-    </div>
+  </div>
   </nav>
   <main role="main">
     <div class="container mt-5">
